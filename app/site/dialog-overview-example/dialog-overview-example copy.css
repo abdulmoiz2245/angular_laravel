@@ -1,0 +1,28 @@
+/** No CSS for this example */
+.update-text{
+    width: 100%;
+}
+
+
+
+
+.suggest-btn {
+    background: #37474f;
+    color: #fff;
+    display: flex;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    height: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid #37474f;
+    transition: 0.5s all ease-in-out;
+  }
+  .suggest-btn:hover {
+    background: none;
+    color: #37474f;
+  }

@@ -1,0 +1,14 @@
+<div class="modal-header">    
+    <h2 class="modal-title" mat-dialog-title trans>cCelebs</h2>
+    <button type="button" (click)="close()" tabindex="-1" class="close-button no-style icon-button">
+        <mat-icon svgIcon="close"></mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content>
+    <p>{{data.text}}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button (click)="close()" type="button" mat-button class="button cancel" trans>Cancel</button>    
+</mat-dialog-actions>

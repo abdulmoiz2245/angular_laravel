@@ -1,0 +1,17 @@
+<form class="panel" (ngSubmit)="saveAds()" [formGroup]="form" ngNativeValidate>
+    <div class="header" trans>Support Us Content</div>
+
+    <div class="vert-row">
+        <div class="input-container">
+            <label for="support.text" trans>Body Text</label>
+            <textarea name="support.text" id="support.text" formControlName="support.text"></textarea>
+        </div>        
+        <div class="input-container">
+            <label for="support.footer" trans>Footer Text</label>
+            <textarea name="support.footer" id="support.footer" formControlName="support.footer"></textarea>
+        </div>        
+    </div>
+
+    <button type="submit" mat-raised-button color="accent" class="save-button" [disabled]="loading$ | async" trans>Save</button>
+    <mat-progress-bar mode="indeterminate" color="accent" *ngIf="loading$ | async"></mat-progress-bar>
+</form>

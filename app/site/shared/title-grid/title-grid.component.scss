@@ -1,0 +1,292 @@
+@import "../../../../scss/variables";
+
+.tooltip {
+  position: relative;
+}
+
+
+title-grid {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(1, 1fr);
+  overflow: hidden;
+
+  &.full-width {
+    @media only screen and (min-width: $xsmall) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media only screen and (min-width: $medium) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media only screen and (min-width: $large) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media only screen and (min-width: $xlarge) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  &.partial-width {
+    @media only screen and (min-width: $xsmall) {
+      grid-template-columns: repeat(2, 1fr);
+    }    
+
+    @media only screen and (min-width: $medium) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media only screen and (min-width: $large) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &.small-titles {
+    .item figcaption .title {
+      font-size: 1.5rem;
+    }
+  }
+
+  .item {
+    margin: 0;
+    text-align: center;
+    min-width: 0;
+    position: relative;
+    overflow: hidden;
+
+    &:hover media-image img {
+      @include mat-elevation(6);
+    }
+
+    media-image img {
+      height: calc(100% - 37px); // figcaption height + margin
+      border-radius: 4px;
+      cursor: pointer;
+      overflow: hidden;
+      transition: box-shadow 0.2s ease-in-out;
+      @include mat-elevation(1);
+    }
+
+    .mat-fab, .mat-mini-fab {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    figcaption {
+      height: 25px;
+      margin: 8px 0 4px;
+
+      &:hover {
+        /*color: mat-color($app-accent, default);*/
+      }
+
+      rating-widget {
+        margin-top: 15px;
+      }
+
+      a {
+        display: block;
+        color: inherit;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 500;
+        font-size: 1.8rem;
+        margin: auto;
+      }
+    }
+  }
+
+  // reduce title size and hide genres on mobile
+  @media only screen and (max-width: $medium) {
+    .item figcaption .title {
+      font-size: 1.5rem;
+    }
+
+    genre-widget {
+      display: none;
+    }
+  }
+  .view-box {
+    width: 76px;
+    height: 64px;
+    position: absolute;
+    background: #fff;
+    top: 230px;
+    z-index: 999999999;
+    right: 6px;
+    padding: 5px;
+    border: 2px solid #000;
+}
+.view-box ul {
+  width: 100%;
+  float: left;
+}
+.view-box ul li {
+  display: inline-block;
+  float: left;
+  width: 33%;
+  /* text-align: center; */
+}
+.view-box ul:first-child li span {
+  padding-top: 3px;
+  display: block;
+}
+.view-box ul li svg {
+  width: 22px;
+  height: auto;
+}
+.view-box ul:last-child li span {
+  font-size: 20px;
+  line-height: 20px;
+}
+.view-box ul:last-child li {
+  width: 100%;
+  text-align: center;
+}
+.view-box.inner{
+    top: 240px;
+}
+
+}
+@media only screen and (max-width: 768px) {
+title-grid.partial-width.small-titles figure media-image {
+  width: 100% !important;
+}
+title-grid.partial-width.small-titles figure {
+  margin: 0 !important;
+}
+}
+@media only screen and (max-width: 500px) {
+title-grid.partial-width.small-titles figcaption .view-sec ul {
+  display: block !important;
+  font-size: 12px;
+  font-weight: 700;
+  justify-content: left;
+  align-items: center;
+  width: auto !important;
+  height: auto !important;
+  border:none !important;
+  border-radius: 100%;
+  margin-right: 5px;
+}
+.main-wrap {
+  display: block !important;
+}
+.flex {
+  display: block !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  width: 100% !important;
+  overflow: visible;
+  word-break: break-word;
+  flex-direction: row;
+  float: left;
+}
+title-grid.partial-width.small-titles figcaption p.text-desc {
+  display: none;
+}
+title-grid.partial-width.small-titles figcaption {
+  height: 105PX !important;
+}
+}
+media-grid .view-box.inner {
+  top: auto;
+  bottom: 42px;
+}
+.view-box .tooltiptext {
+  width: 126px;
+  left: -55px;
+  font-size: 12px !important;
+}
+
+.view-box .tooltiptext span {
+  font-size: 12px !important;
+}
+title-grid.partial-width.small-titles figure media-image {
+  width: 185px;
+  float: left;
+  margin-right: 0;
+}
+title-grid.partial-width.small-titles figcaption{
+  padding: 15px;
+  height: 266px;
+  overflow: hidden;
+  text-align: left;
+  position: relative;
+}
+title-grid.partial-width.small-titles figcaption p {
+  font-size: 14px;
+  height: 123px;
+  overflow: hidden;
+  width: 100%;
+}
+title-grid.partial-width.small-titles figure {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin:7px 6px 5px 3px;
+}
+title-grid.partial-width.small-titles figcaption p.view-more {
+  border-top: 1px solid #e3e3e3;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 5px 15px;
+  height: auto;
+  width: 100%;
+  margin: 0;
+}
+title-grid.partial-width.small-titles figcaption p.view-more a {
+  font-size: 0.9em;
+  font-weight: 700;
+}
+title-grid.small-titles .item figcaption .title {
+  font-size: 1.5rem;
+  display: block;
+  height: auto;
+  width: 100%;
+}
+title-grid.partial-width.small-titles figcaption .view-sec ul {
+  display: flex;
+  font-size: 12px;
+  font-weight: 700;
+  justify-content: center;
+  align-items: center;
+  width: 47px;
+  height: 47px;
+  border: 1px solid #000;
+  border-radius: 100%;
+  margin-right: 5px;
+}
+.main-wrap {
+  display: flex;
+}
+title-grid.small-titles .item figcaption .title {
+  font-size: 1.5rem;
+  display: block;
+  height: auto;
+  width: 100%;
+  float: left;
+}
+.flex {
+  display: block;
+  flex-wrap: nowrap;
+  align-items: center;
+  width: 140px;
+  overflow: visible;
+  word-break: break-word;
+  flex-direction: row;
+}
+.flex span {
+  display: block;
+  float: left;
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+}

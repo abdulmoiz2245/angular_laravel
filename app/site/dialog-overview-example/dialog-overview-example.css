@@ -1,0 +1,17 @@
+/** No CSS for this example */
+.update-text{
+    width: 100%;
+    height: 150px;
+}
+
+.mat-form-field{
+    width: 100%;
+}
+
+.rating-btn, .rating-btn:active{
+  margin: 0;
+  box-sizing: unset;
+  padding: 0;
+  box-shadow: none;
+  color: black;
+}

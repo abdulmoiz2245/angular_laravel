@@ -1,0 +1,43 @@
+<material-navbar></material-navbar>
+<div class="bg-wrapper">
+
+<div class="page-body container article-body">
+  <div *ngIf="content$ | async as data">
+    <div [innerHTML]="data"></div>
+  </div> 
+    <div class="pay-container">   
+      <span>Support as: </span>
+      <mat-form-field>
+          <mat-label>Select Amount</mat-label>
+          <mat-select (ngModelChange)="changePrice($event)" [(ngModel)]="defaultPrice">
+            <mat-option *ngFor="let plan of monthPlan"  [value]="plan.id">
+              {{plan.name}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+      <span>On Monthly Basis</span>
+      <ngx-paypal [config]="payPalConfig"></ngx-paypal>                     
+      <span>Support as: </span>
+      <mat-form-field>
+          <mat-label>Select Amount</mat-label>
+          <mat-select (ngModelChange)="changePrice($event)" [(ngModel)]="defaultPrice">
+            <mat-option *ngFor="let plan of yearPlan"  [value]="plan.id">
+              {{plan.name}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+      <span>On Yearly Basis</span>
+      <ngx-paypal2 [config]="payPalConfig"></ngx-paypal2>
+    </div>
+    <div *ngIf="footercontent$ | async as data">
+      <div [innerHTML]="data"></div>
+    </div> 
+    <h2>
+      Today's Famous Birthdays
+    </h2>
+    <ng-container *ngIf="people$ | async as people">
+      <media-grid [items]="people.data" class="full-width"></media-grid> 
+    </ng-container>        
+</div>
+</div>
+<loading-indicator class="overlay" [isVisible]="loading$ | async"></loading-indicator>

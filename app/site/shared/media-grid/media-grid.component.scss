@@ -1,0 +1,192 @@
+@import "../../../../scss/variables";
+
+media-grid {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(1, 1fr);
+  overflow: hidden;
+
+  &.full-width {
+    @media only screen and (min-width: $xsmall) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media only screen and (min-width: $medium) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media only screen and (min-width: $large) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media only screen and (min-width: $xlarge) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  &.partial-width {
+    @media only screen and (min-width: $xsmall) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media only screen and (min-width: $medium) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media only screen and (min-width: $large) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &.small-titles {
+    .item figcaption .title {
+      font-size: 1.5rem;
+    }
+  }
+
+  .tooltip {
+    position: relative;
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200%;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    transform:translate(-45%);
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    left:0;
+    bottom: 245%;
+    font-size: 15px!important;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+
+  .item {
+    margin: 0;
+    text-align: center;
+    min-width: 0;
+    position: relative;
+    overflow: hidden;
+
+    &:hover media-image img {
+      @include mat-elevation(6);
+    }
+
+    media-image img {
+      height: calc(100% - 37px); // figcaption height + margin
+      border-radius: 4px;
+      cursor: pointer;
+      overflow: hidden;
+      transition: box-shadow 0.2s ease-in-out;
+      @include mat-elevation(1);
+    }
+
+    .mat-fab, .mat-mini-fab {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    figcaption {
+      height: 25px;
+      margin: 8px 0 4px;
+
+      &:hover {
+        color: mat-color($app-accent, default);
+      }
+
+      rating-widget {
+        margin-top: 15px;
+      }
+
+      a {
+        display: block;
+        color: inherit;
+        max-width: 90%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 500;
+        font-size: 1.8rem;
+        margin: auto;
+      }
+    }
+  }
+
+  // reduce title size and hide genres on mobile
+  @media only screen and (max-width: $medium) {
+    .item figcaption .title {
+      font-size: 1.5rem;
+    }
+
+    genre-widget {
+      display: none;
+    }
+  }
+  .view-box {
+    width: 76px;
+    height: 64px;
+    position: absolute;
+    background: #fff;
+    top: 230px;  
+    right: 6px;
+    padding: 5px;
+    border: 2px solid #000;
+}
+.view-box ul {
+  width: 100%;
+  float: left;
+}
+.view-box ul li {
+  display: inline-block;
+  float: left;
+  width: 33%;
+  /* text-align: center; */
+}
+.view-box ul:first-child li span {
+  padding-top: 3px;
+  display: block;
+}
+.view-box ul li svg {
+  width: 22px;
+  height: auto;
+}
+.view-box ul:last-child li span {
+  font-size: 20px;
+  line-height: 20px;
+}
+.view-box ul:last-child li {
+  width: 100%;
+  text-align: center;
+}
+.view-box.inner{
+    top: 240px;
+}
+}
+media-grid .view-box.inner {
+  top: auto;
+  bottom: 42px;
+}
+.view-box .tooltiptext {
+  width: 126px;
+  left: -55px;
+  font-size: 12px !important;
+}
+
+.view-box .tooltiptext span {
+  font-size: 12px !important;
+}

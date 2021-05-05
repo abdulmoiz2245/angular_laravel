@@ -1,0 +1,138 @@
+<media-item-header></media-item-header>
+
+<ad-host slot="ads.shared" class="shared-ad-host"></ad-host>
+
+<mat-sidenav-container class="container main-container header"> 
+    <h1 trans>Celebrities</h1>
+    <div class="applied-filters">
+        <button class="toggle-filters-button inner-toggle-btn" mat-icon-button (click)="sidenav.toggle()" *ngIf="breakpoints.isMobile$.value">
+            <mat-icon svgIcon="menu"></mat-icon>
+        </button>
+        <button mat-stroked-button class="clear-all-filters-button" (click)="clearAllFilters()">
+            <span class="text" trans>Reset Filters</span>
+            <mat-icon svgIcon="close"></mat-icon>
+        </button>
+    </div>
+        <div class="right social-right">
+            <div class="links">
+                <div class="social-icons">
+                    <button type="button" mat-icon-button (click)="shareUsing('facebook')" class="social-icon facebook">
+                        <mat-icon svgIcon="facebook"></mat-icon>
+                    </button>
+                    <button type="button" mat-icon-button (click)="shareUsing('twitter')" class="social-icon twitter">
+                        <mat-icon svgIcon="twitter"></mat-icon>
+                    </button>
+                    <button type="button" mat-icon-button (click)="shareUsing('mail')" class="social-icon mail">
+                        <mat-icon svgIcon="mail"></mat-icon>
+                    </button>
+                    <button type="button" mat-icon-button (click)="shareUsing('copy')" class="social-icon link">
+                        <mat-icon svgIcon="link"></mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+</mat-sidenav-container>
+<mat-sidenav-container class="container main-container">   
+    <mat-sidenav class="sidebar" [mode]="breakpoints.isMobile$.value ? 'over' : 'side'" [opened]="true" [fixedInViewport]="breakpoints.isMobile$.value" #sidenav>
+        <form [formGroup]="form" class="peopleform">
+            <h2 trans>Advanced Search</h2>
+            <div class="input-container">
+                <label class="filter-header" for="type" trans>Title Type</label>
+                <select name="type" id="type" formControlName="title_type">
+                    <option [ngValue]="null" trans>All Types</option>
+                    <option value="movie" trans>Movie</option>
+                    <option value="series" trans>TV Series</option>
+                </select>
+                <br/>
+                
+                <search-person-input (resultSelected)="searchPerson($event)" [type]="getType()"></search-person-input>  
+            </div>
+            <div class="input-container">                
+                <mat-selection-list formControlName="birthstatus">
+                    <mat-list-option checkboxPosition="before" value="true" trans>Filter by Birthday</mat-list-option>
+                </mat-selection-list>
+                <select name="type" id="type" formControlName="birthday">                                        
+                    <option value="asc" [selected]="true" trans>Ascending</option>
+                    <option value="desc" trans>Decending</option>
+                </select>
+            </div>
+            <br/>
+            <div class="slider-filter">
+                <div class="filter-header" trans>Filter by Age</div>
+                <range-slider [min]="1" formControlName="age" [max]="100" [step]="1" affix="Years"></range-slider>
+            </div>
+            <div class="input-container">                
+                <mat-selection-list  formControlName="deathstatus">
+                    <mat-list-option checkboxPosition="before" value="true" trans>Filter by Death</mat-list-option>
+                </mat-selection-list>
+                <select name="type" id="type"  formControlName="death">                    
+                    <option value="asc" [selected]="true" trans>Ascending</option>
+                    <option value="desc" trans>Decending</option>
+                </select>
+            </div>
+            <div class="input-container">                
+                <mat-selection-list formControlName="genderstatus">
+                    <mat-list-option checkboxPosition="before" value="true" trans>Filter by Gender</mat-list-option>
+                </mat-selection-list>
+                <select name="type" id="type" formControlName="gender"> 
+                    <option [ngValue]="null" trans>All Types</option>                   
+                    <option value="male"  trans>Male</option>
+                    <option value="female" trans>Female</option>
+                </select>
+            </div>
+            <br/>
+            <h2 trans>Filter by Ratings</h2>
+            <div class="input-container">                
+                <mat-selection-list formControlName="lookskills">
+                    <mat-list-option checkboxPosition="before" value="true" trans>Filter by Looks + Skills</mat-list-option>
+                </mat-selection-list>
+            </div>
+            <br/>
+            <h2 trans>Looks</h2>
+            <div class="input-container">                
+                <mat-selection-list formControlName="looks">
+                    <mat-list-option [value]="looks" *ngFor="let looks of looksOption$" checkboxPosition="before" trans>{{looks}}</mat-list-option>                    
+                </mat-selection-list>
+            </div>
+            <br/>
+            <h2 trans>Skills</h2>
+            <div class="input-container">                
+                <mat-selection-list formControlName="skills">
+                    <mat-list-option [value]="skills" *ngFor="let skills of skillsOption$" checkboxPosition="before" trans>{{skills}}</mat-list-option>              
+                </mat-selection-list>
+            </div>
+            <br/>
+            <h2 trans>Country</h2>
+            <div class="input-container">                
+                <select id="country" formControlName="country">
+                    <option [ngValue]="null" trans>All Countries</option>
+                    <option [value]="option.name" *ngFor="let option of countries$">{{option.name}}</option>
+                </select>
+            </div>
+            <br/>
+            <h2 trans>Filter by Profession</h2>
+            <div class="input-container">                
+                <mat-selection-list formControlName="profession">
+                    <mat-list-option [value]="profession" *ngFor="let profession of professionOptions$" checkboxPosition="before" trans>{{profession}}</mat-list-option>              
+                </mat-selection-list>
+            </div>
+            <br/>
+            <button class="reset-filters-btn" (click)="clearAllFilters()" mat-stroked-button trans>
+                <mat-icon svgIcon="refresh"></mat-icon>
+                <span trans>Reset Filters</span>
+            </button>
+        </form>
+        
+    </mat-sidenav>
+
+    <mat-sidenav-content>     
+        <ng-container *ngIf="people$ | async as people">
+            <media-grid [items]="people.data" class="partial-width small-titles"></media-grid> 
+        </ng-container>        
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<loading-indicator [isVisible]="loading$ | async" class="overlay"></loading-indicator>
+
+<footer></footer>

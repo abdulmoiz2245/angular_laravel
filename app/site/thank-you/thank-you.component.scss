@@ -1,0 +1,42 @@
+@import "variables";
+thank-you {
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #597996;
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: 300;
+  margin-top: 50px;
+  max-width: 90%;
+  text-align: center;
+}
+
+p{
+    font-style: italic;
+    font-weight: bold;
+}
+
+.mat-raised-button{
+  color: #fff;
+  background-color: #f44336;
+  min-width: 220px;
+  line-height: 46px;
+  max-width: 90%;
+  width: 220px;
+  margin: 15px auto;
+  display: block;
+}
+
+.thanks-head{
+    font-weight: bold;
+    text-align: center;
+    font-size: 50px;
+}
+
+}

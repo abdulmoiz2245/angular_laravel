@@ -1,0 +1,24 @@
+:host {
+  display: flex;
+  align-items: center;
+}
+
+.input-container {
+  margin-left: 3px;
+  width: auto;
+  max-width: 160px;
+
+  input {
+    height: 25px;
+    padding: 6px;
+  }
+}
+
+.link-icon {
+  margin-right: 5px;
+}
+
+.action-button {
+  margin-left: 20px;
+  line-height: 25px;
+}

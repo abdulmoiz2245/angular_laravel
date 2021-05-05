@@ -1,0 +1,5 @@
+<div class="slider-filter filter-container" >
+    <label for="vol">{{affix | trans}}</label>
+    <div class="slider-el" #sliderEl></div>
+    <label for="vol" *ngIf="value$ | async as value">{{value[0]}}</label>    
+</div>

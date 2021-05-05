@@ -1,0 +1,285 @@
+@import "../../../../scss/variables";
+
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100%;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  left:0;
+  bottom: 100%;
+  font-size: 15px!important;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+recently-rated-celeb {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(1, 1fr);
+  overflow: hidden;
+
+
+  h2{
+    width: 100%;
+    top: 82px;
+    position: absolute;
+    color: #fff;
+    text-align: center;
+  }
+  
+
+  owl-carousel-o{  
+    width: 100%;
+    position: absolute;
+    top: 62%;
+    left: 50%;  
+    transform: translate(-50%, -50%);
+  }
+
+
+
+  .owl-carousel .item a {
+    position: relative;
+    width: 100%;
+    display: block;
+    height: 262px;
+}
+.owl-carousel .item media-image a img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+  
+
+
+media-grid.full-width .item figcaption a {
+    color: #000;
+    transition: background 0.5s ease;
+    -webkit-transition: background 0.5s ease;
+    -moz-transition: background 0.5s ease;
+}
+
+  media-grid .item figcaption a {
+    max-width: 100%;
+    padding: 5px;
+    background:transparent;
+    transition: background 0.5s ease;
+    -webkit-transition: background 0.5s ease;
+    -moz-transition: background 0.5s ease;
+}
+  
+.owl-carousel a.title {
+  color: #fff;
+  display: block;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  max-width: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 8px 3px;
+  height: auto;
+}
+
+  &.full-width {
+    @media only screen and (min-width: $xsmall) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media only screen and (min-width: $medium) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media only screen and (min-width: $large) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media only screen and (min-width: $xlarge) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  &.partial-width {
+    @media only screen and (min-width: $xsmall) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media only screen and (min-width: $medium) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media only screen and (min-width: $large) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &.small-titles {
+    .item figcaption .title {
+      font-size: 1.5rem;
+    }
+  }
+
+  .item {
+    margin: 10px;    
+    text-align: center;
+    min-width: 0;
+    position: relative;    
+
+    &:hover media-image img {
+      @include mat-elevation(6);
+    }
+
+    media-image img {
+      height: calc(100% - 37px); // figcaption height + margin
+      border-radius: 4px;
+      cursor: pointer;
+      overflow: hidden;
+      transition: box-shadow 0.2s ease-in-out;
+      @include mat-elevation(1);
+    }
+
+    .mat-fab, .mat-mini-fab {
+      position: absolute;
+      margin: auto;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    figcaption {
+      height: 25px;
+      margin: 8px 0 4px;
+
+      &:hover {
+        color: mat-color($app-accent, default);
+      }
+
+      rating-widget {
+        margin-top: 15px;
+      }
+
+      a {
+        display: block;
+        color: inherit;
+        max-width: 90%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-weight: 500;
+        font-size: 1.8rem;
+        margin: auto;
+      }
+    }
+  }
+
+  // reduce title size and hide genres on mobile
+  @media only screen and (max-width: $medium) {
+    .item figcaption .title {
+      font-size: 1.5rem;
+    }
+
+    genre-widget {
+      display: none;
+    }
+  }
+  .view-box {
+    width: 76px;
+    height: 64px;
+    position: absolute;
+    background: #fff;
+    top: 192px;
+    z-index: 999999999;    
+    right: 6px;
+    padding: 5px;
+    border: 2px solid #000;
+}
+.view-box ul {
+  width: 100%;
+  float: left;
+}
+.view-box ul li {
+  display: inline-block;
+  float: left;
+  width: 33%;
+  /* text-align: center; */
+}
+.view-box ul:first-child li span {
+  padding-top: 3px;
+  display: block;
+}
+.view-box ul li svg {
+  width: 22px;
+  height: auto;
+}
+.view-box ul:last-child li span {
+  font-size: 20px;
+  line-height: 20px;
+}
+.view-box ul:last-child li {
+  width: 100%;
+  text-align: center;
+}
+
+}
+@media only screen and (max-width:767px){
+    recently-rated-celeb owl-carousel-o {
+    top: 545px;
+}
+  button.mobile-search-toggle.mat-icon-button.ng-star-inserted svg {
+    display: none;
+}
+recently-rated-celeb h2 {
+  top: 16%;
+  font-size: 24px;
+}
+.owl-carousel.owl-theme.owl-loaded.owl-responsive.owl-drag {
+  height: 800px;
+}
+slider {
+  height: 506px;
+}
+material-navbar .nav-searchbar input, material-navbar .nav-searchbar form {
+  height: 40px !important;
+}
+material-navbar .nav-searchbar input, material-navbar .nav-searchbar input:active, material-navbar .nav-searchbar input:focus {
+  background-color: #fff !important ;
+  color: #000 !important;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+slider material-navbar .nav-searchbar input {
+  background-color: rgba(67, 81, 80, 0.6);  
+}
+homepage .list h2 {
+  font-size: 3rem;
+  margin: 0;
+  text-align: center;
+}
+homepage .list p {
+  font-size: 18px;
+  text-align: center;
+  font-weight: 500;
+}
+}
+input#autocomplete-input::placeholder {
+  color: #000 !important;
+}

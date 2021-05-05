@@ -1,0 +1,18 @@
+<form class="panel" (ngSubmit)="saveAds()" [formGroup]="form" ngNativeValidate>
+    <div class="header" trans>PouUp Message</div>
+
+    <div class="vert-row">
+        <div class="input-container">
+            <label for="popup.text" trans>PouUp Text</label>
+            <textarea name="popup.text" id="popup.text" formControlName="popup.text"></textarea>
+        </div>        
+    </div>
+
+    <div class="setting-toggle-container margin-top margin-bottom">
+        <mat-slide-toggle name="popup.disable" id="popup.disable" formControlName="popup.disable" trans>Disable PopUp</mat-slide-toggle>
+        <p trans>Disable Website PopUp functionality.</p>
+    </div>
+
+    <button type="submit" mat-raised-button color="accent" class="save-button" [disabled]="loading$ | async" trans>Save</button>
+    <mat-progress-bar mode="indeterminate" color="accent" *ngIf="loading$ | async"></mat-progress-bar>
+</form>

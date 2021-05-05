@@ -1,0 +1,146 @@
+<form class="primary-facts-panel" (ngSubmit)="submit_meta()" [formGroup]="personFormMeta" ngNativeValidate>
+
+    <div class="many-inputs">
+        <h3>General</h3>
+        <div class="inline-container many-inputs">
+            <div class="input-container">
+                <label for="name" trans>Also Know As</label>
+                <input type="text" formControlName="also_known_as" id="also_known_as">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Stage Name</label>
+                <input type="text" formControlName="stage_name" id="stage_name">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Real Name</label>
+                <input type="text" formControlName="real_name" id="real_name">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Star/Zodiac Sign</label>
+                <input type="text" formControlName="star_sign" id="star_sign">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Eyes Color</label>
+                <input type="text" formControlName="eyes_color" id="eyes_color">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Current City</label>
+                <input type="text" formControlName="current_city" id="current_city">
+            </div>
+        </div>
+        <div class="inline-container many-inputs">
+            <div class="input-container">
+                <label for="name" trans>Residence</label>
+                <input type="text" formControlName="residence" id="residence">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Politics</label>
+                <input type="text" formControlName="politics" id="politics">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Food Habit</label>
+                <input type="text" formControlName="food_habit" id="food_habit">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Religion</label>
+                <input type="text" formControlName="religion" id="religion">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Hair Color</label>
+                <input type="text" formControlName="hair_color" id="hair_color">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Net Worth</label>
+                <input type="text" formControlName="net_worth" id="net_worth">
+            </div>
+        </div>
+        <h3>Family</h3>
+        <div class="inline-container many-inputs">
+            <div class="input-container">
+                <label for="name" trans>Parents</label>
+                <input type="text" formControlName="parents" id="parents">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Sibling (s)</label>
+                <input type="text" formControlName="siblings" id="siblings">
+            </div>
+        </div>
+        <h3>Qualification and Education</h3>
+        <div class="inline-container many-inputs">
+            <div class="input-container">
+                <label for="name" trans>School</label>
+                <input type="text" formControlName="school" id="school">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>College</label>
+                <input type="text" formControlName="college" id="college">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Education</label>
+                <input type="text" formControlName="education" id="education">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Height</label>
+                <input type="text" formControlName="height" id="height">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Nationality</label>
+                <input type="text" formControlName="nationality" id="nationality">
+            </div>
+        </div>
+        <h3>Relationships</h3>
+        <div class="inline-container many-inputs">
+            <div class="input-container">
+                <label for="name" trans>Boyfriend/Girlfriend/Affairs</label>
+                <input type="text" formControlName="affairs" id="affairs">
+            </div>
+        </div>
+        <h3>Social Media Profiles and Other links</h3>
+        <div class="inline-container many-inputs">
+            <div class="input-container">
+                <label for="name" trans>Instagram</label>
+                <input type="text" formControlName="instagram" id="instagram">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Facebook</label>
+                <input type="text" formControlName="facebook" id="facebook">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Twitch</label>
+                <input type="text" formControlName="twitch" id="twitch">
+            </div>
+
+            <div class="input-container">
+                <label for="name" trans>Twitter</label>
+                <input type="text" formControlName="twitter" id="twitter">
+            </div>
+        </div>
+        <div class="inline-container many-inputs">
+            <div class="input-container">
+                <label for="name" trans>YouTube</label>
+                <input type="text" formControlName="youTube" id="youTube">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Quora</label>
+                <input type="text" formControlName="quora" id="quora">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Spotify</label>
+                <input type="text" formControlName="spotify" id="spotify">
+            </div>
+            <div class="input-container">
+                <label for="name" trans>Website</label>
+                <input type="text" formControlName="website" id="website">
+            </div>
+        </div>
+        <h3>Faq About</h3>
+        <div formGroupName="faqs">
+            <div class="input-container" *ngFor="let faq of faqs;">
+                <label for="name" trans>{{faq.question}}</label>
+                <input type="text" formControlName="{{faq.key}}" id="{{faq.key}}">
+            </div>
+        </div>
+
+        <button type="submit" mat-raised-button color="accent" class="submit-button" trans>Save</button>
+    </div>
+</form>

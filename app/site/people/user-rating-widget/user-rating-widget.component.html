@@ -1,0 +1,80 @@
+<form (ngSubmit)="confirm()" [formGroup]="ratingForm">
+    <div class="rating-view-sec">
+        <div class="left">
+            <h3>Looks Ratings</h3>
+
+            <single-range-slider [min]="1" [max]="10" [step]="1" affix="Forehead" formControlName="forehead"></single-range-slider>
+
+            <single-range-slider [min]="1" [max]="10" [step]="1" affix="Eyes" formControlName="eyes"></single-range-slider>
+
+            <single-range-slider [min]="1" [max]="10" [step]="1" affix="Nose" formControlName="nose"></single-range-slider>
+
+            <single-range-slider [min]="1" [max]="10" [step]="1" affix="Cheeks" formControlName="cheeks"></single-range-slider>
+
+            <single-range-slider [min]="1" [max]="10" [step]="1" affix="Lips" formControlName="lips"></single-range-slider>
+
+            <single-range-slider [min]="1" [max]="10" [step]="1" affix="Chin" formControlName="chin"></single-range-slider>
+
+            <single-range-slider [min]="1" [max]="10" [step]="1" affix="Face" formControlName="face"></single-range-slider>
+        </div>
+        <div class="left" *ngIf="visibleSkills$ | async as visibleSkill">
+            <h3>Skill Ratings</h3>
+
+            <single-range-slider [min]="1" [max]="10" [step]="1" affix="Acting" formControlName="acting" *ngIf="visibleSkill.acting"></single-range-slider>
+
+            <single-range-slider [min]="1" [max]="10" [step]="1" affix="Voice" formControlName="voice" *ngIf="visibleSkill.voice"></single-range-slider>
+
+            <single-range-slider [min]="1" [max]="10" [step]="1" affix="Direction" formControlName="direction" *ngIf="visibleSkill.direction"></single-range-slider>
+
+            <single-range-slider [min]="1" [max]="10" [step]="1" affix="Modelling" formControlName="modelling" *ngIf="visibleSkill.modelling"></single-range-slider>
+
+            <single-range-slider [min]="1" [max]="10" [step]="1" affix="Influencing" formControlName="influencer" *ngIf="visibleSkill.influencer"></single-range-slider>
+
+            <single-range-slider [min]="1" [max]="10" [step]="1" affix="Writing" formControlName="writing" *ngIf="visibleSkill.writing"></single-range-slider>
+
+            <single-range-slider [min]="1" [max]="10" [step]="1" affix="Production" formControlName="production" *ngIf="visibleSkill.production"></single-range-slider>
+
+            <div class="slider-filter filter-container">
+                <input type="submit" name="" value="Submit Your Rating" class="rating-btn">
+            </div>
+        </div>
+    </div>
+</form>
+
+<loading-indicator [isVisible]="loading$ | async" class="overlay"></loading-indicator>
+<div class="rate-overlay" *ngIf="loginPopup">
+    <div class="rate-container">
+        <h2>To Rate Celebrities</h2>
+        <span><a routerLink="/login" >Login</a></span>
+        <span>or</span>
+        <span><a routerLink="/register" >Register</a></span>
+        <br/>
+        <button class="rate-close" type="button" (click)="closePopup()">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                <g>
+                    <g>
+                        <g>
+                            <path d="M256,0C114.844,0,0,114.844,0,256s114.844,256,256,256s256-114.844,256-256S397.156,0,256,0z M256,490.667     C126.604,490.667,21.333,385.396,21.333,256S126.604,21.333,256,21.333S490.667,126.604,490.667,256S385.396,490.667,256,490.667     z"/>
+                            <path d="M359.542,152.458c-4.167-4.167-10.917-4.167-15.083,0L256,240.917l-88.458-88.458c-4.167-4.167-10.917-4.167-15.083,0     c-4.167,4.167-4.167,10.917,0,15.083L240.917,256l-88.458,88.458c-4.167,4.167-4.167,10.917,0,15.083     c2.083,2.083,4.813,3.125,7.542,3.125s5.458-1.042,7.542-3.125L256,271.083l88.458,88.458c2.083,2.083,4.813,3.125,7.542,3.125     c2.729,0,5.458-1.042,7.542-3.125c4.167-4.167,4.167-10.917,0-15.083L271.083,256l88.458-88.458     C363.708,163.375,363.708,156.625,359.542,152.458z"/>
+                        </g>
+                    </g>
+                </g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                </svg>
+        </button>
+    </div>
+</div>

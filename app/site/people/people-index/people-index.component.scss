@@ -1,0 +1,340 @@
+@import "../../../../scss/variables";
+
+people-index {
+  display: block;
+
+  .main-container {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    min-height: calc(100vh - #{$material-navbar-height + $footer-height});
+  }
+
+  .page-title {
+    padding: 0 10px;
+    margin: 0 0 5px;
+  }
+
+  sort-dropdown {
+    padding-left: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid mat-color($app-foreground, divider-lighter); //
+  }
+
+  .person {
+    display: flex;
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 4px;
+    overflow: hidden;
+    max-width: 900px;
+
+    &:nth-child(even) {
+      background-color: mat-color($app-background, background);
+    }
+
+    .meta {
+      padding: 0 20px;
+    }
+
+    .name {
+      font-size: 1.6rem;
+      font-weight: 500;
+      margin-top: 5px;
+    }
+
+    a {
+      color: mat-color($app-accent, default);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    media-image {
+      width: 140px;
+      height: 210px;
+      flex: 0 0 140px;
+
+      img {
+        @include mat-elevation(1);
+        border-radius: 4px;
+        height: 100%;
+      }
+    }
+  }
+
+  .shared-ad-host {
+    margin-top: 30px;
+  }
+
+  @media only screen and (max-width: $medium) {
+    .description {
+      display: none;
+    }
+
+    .person media-image {
+      width: 50px;
+      height: 75px;
+      flex: 0 0 50px;
+    }
+    material-navbar.mobile-search-active .nav-searchbar{
+      top:53px !important;
+      height: 34px;
+      overflow: hidden;
+    }   
+  }
+
+
+  .main-container {
+    display: flex;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 60px;
+    min-height: 100vh;
+  }
+
+  .main-container.header{
+    min-height: unset;
+    margin-bottom:0;
+    padding-bottom:0 ;
+    padding-left: 20px;
+  
+
+    h1{
+      margin-bottom: 0;
+      padding-bottom:0 ;
+      font-weight: bold;
+      letter-spacing:1px;
+      border-bottom:none;
+      display: inline-block;
+      margin-left: 285px;
+    }
+
+  }
+
+  .mat-sidenav-container {
+    background-color: mat-color($app-background, card);
+    color: inherit;
+  }
+
+  .mat-sidenav-content {
+    width: 100%;
+  }
+
+  .mat-sidenav-fixed.sidebar {
+    padding-top: $material-navbar-height + 20px;
+  }
+
+  .mat-drawer-inner-container {
+    overflow: initial;
+  }
+
+  .sidebar {
+    width: 250px + 35px;
+    padding-top: 8px;
+    border-right: none;
+    padding-left: 20px;
+    overflow: auto;
+    user-select: none;
+    background: #ffffff;
+    color: inherit;
+
+    .peopleform {
+      width: calc(100% - 35px);
+
+      h2{
+        margin-top: 0;
+        padding: 0;
+        border-bottom: 1px solid mat-color($app-foreground, divider);
+      }
+
+      people-index .sidebar form{
+        width:100%;
+      }
+    }
+
+    .filter-header {
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      line-height: 1.5;
+      letter-spacing: 2px;
+      font-size: 1.3rem;
+    }
+
+    .filter-container {      
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+    }
+
+    .reset-filters-btn {
+      width: 100%;
+
+      .mat-icon {
+        margin-right: 5px;
+      }
+    }
+
+    .mat-selection-list {
+      padding-top: 0;
+      margin-left: -16px;
+
+      .mat-list-option {
+        text-transform: capitalize;
+        height: 38px;
+        color: inherit;
+      }
+
+      .mat-pseudo-checkbox {
+        color: mat-color($app-foreground, secondary-text);
+      }
+    }
+
+    .slider-filter {
+      .filter-header {
+        margin-bottom: 0;
+      }
+    }
+
+    range-slider {
+      margin-top: 18px;
+    }
+
+    .mat-button-toggle-appearance-standard {
+      .mat-button-toggle-label-content {
+        line-height: 25px;
+        height: 25px;
+        padding: 0 8px;
+        text-transform: uppercase;
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  .items-container {
+    padding: 35px 20px 0;
+
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+
+      h1 {
+        margin: 0;
+        align-self: flex-end;
+      }
+
+      sort-dropdown {
+        margin-left: auto;
+        width: auto;
+      }
+
+      .applied-filter {
+        padding-left: 15px;
+      }
+
+      .toggle-filters-button {
+        margin-left: 8px;
+      }
+
+      .clear-all-filters-button {
+        margin-left: 20px;
+        padding: 0 8px 0 10px;
+
+        .mat-icon {
+          color: mat-color($app-foreground, icon);
+          margin-left: 5px;
+        }
+
+        @media only screen and (max-width: $medium) {
+          display: none;
+        }
+      }
+    }
+
+    no-results-message {
+      margin-top: 30px;
+    }
+  }
+
+  .shared-ad-host {
+    margin-top: 30px;
+  }
+}
+people-index .mat-sidenav-container .applied-filters {
+  display: inline-block;
+  margin-left: 1em;
+}
+.right.social-right{
+  float: right;
+  position: relative;
+  top: 10px;
+}
+people-index .mat-sidenav-content {
+  width: 100%;
+  padding-left: 15px;
+}
+@media only screen and (max-width: 1024px) {
+  media-grid .view-box.inner {
+    top: 164px !important;
+}
+
+}
+@media only screen and (max-width: 768px) {
+media-grid .view-box.inner {
+  top: 143px !important;
+}
+media-grid{
+  padding: 0 15px;
+}
+people-index .main-container.header h1 {
+  font-size: 1.3em;
+  display: inline-block;
+  margin: 0;
+}
+}
+@media only screen and (max-width: 640px){
+media-grid .view-box.inner {
+    top: auto !important;
+    bottom: 43px;
+}
+people-index .mat-drawer-content {
+  padding-top: 22px;
+}
+}
+person-page .slider {
+  background: #f44336;
+}
+input#autocomplete-input::placeholder {
+  color: #000 !important;
+}
+button.mobile-search-toggle.mat-icon-button.ng-star-inserted {
+  display: none;
+}
+people-index .social-icons {
+  margin-top: 9px;
+}
+@media only screen and (max-width: 1000px){
+material-navbar.mobile-search-active .nav-searchbar input {
+    margin-top: 0;
+    border: 1px solid #ccc;
+    height: 34px;
+}
+people-index .mat-sidenav-container .applied-filters {
+  display: inline-block;
+  margin-left: 0;
+  vertical-align: middle;
+}
+people-index .social-icons {
+  margin-top: 9px;
+}
+.right.social-right{
+  top: 0;
+}
+people-index .mat-sidenav-content {
+  padding-left: 0;
+}
+.mat-menu-panel {
+  background: #fff !important;
+}
+}

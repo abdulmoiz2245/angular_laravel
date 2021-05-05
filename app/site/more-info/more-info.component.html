@@ -1,0 +1,138 @@
+<div *ngIf="person">
+    <div class="left">
+        <div class="details">
+            <div class="header" trans>More Info</div>
+            <div class="values">
+                <div class="name" trans>Also Known as </div>
+                <div style="word-break: break-all;" class="value" trans>{{person.also_known_as || unknown }}</div>
+            </div>
+            <div class="values gender-values">
+                <div class="name" trans>Stage Name</div>
+                <div class="value" trans>{{person.stage_name || unknown }}</div>
+            </div>
+            <div class="values">
+                <div class="name" trans>Real Name</div>
+                <div class="value">{{person.real_name || unknown }}</div>
+            </div>
+            <div class="values">
+                <div class="name" trans>Star/Zodiac Sign</div>
+                <div class="value">{{person.star_sign || unknown }}</div>
+            </div>
+            <div class="values">
+                <div class="name" trans>Eyes Color</div>
+                <div class="value">{{person.eyes_color || unknown }}</div>
+            </div>
+            <div class="values">
+                <div class="name" trans>Current City</div>
+                <div class="value">{{person.current_city || unknown }}</div>
+            </div>
+            <div class="values">
+                <div class="name" trans>Residence</div>
+                <div class="value">{{person.residence || unknown }}</div>
+            </div>
+            <div class="values">
+                <div class="name" trans>Politics</div>
+                <div class="value">{{person.politics || unknown }}</div>
+            </div>
+            <div class="values">
+                <div class="name" trans>Food Habit</div>
+                <div class="value">{{person.food_habit || unknown }}</div>
+            </div>
+            <div class="values">
+                <div class="name" trans>Religion</div>
+                <div class="value">{{person.religion || unknown }}</div>
+            </div>
+            <div class="values">
+                <div class="name" trans>Hair Color</div>
+                <div class="value">{{person.hair_color || unknown }}</div>
+            </div>
+            <div class="values">
+                <div class="name" trans>Net Worth</div>
+                <div class="value">{{person.net_worth || unknown }}</div>
+            </div>
+            <div class="header" trans>Relationships </div>
+            <div class="values">
+                <div class="name" trans>Boyfriend/Girlfriend/Affairs</div>
+                <div class="value">{{person.affairs || unknown }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="left">
+        <div class="details">
+            <div class="header" trans>Family Info</div>
+            <div class="values">
+                <div class="name" trans>Parents</div>
+                <div style="word-break: break-all;" class="value" trans>{{person.parents || unknown }}</div>
+            </div>
+            <div class="values gender-values">
+                <div class="name" trans>Sibling (s)</div>
+                <div class="value" trans>{{person.siblings || unknown }}</div>
+            </div>
+            <div class="header" trans>Qualification and Education</div>
+            <div class="values">
+                <div class="name" trans>School</div>
+                <div class="value">{{person.school || unknown }}</div>
+            </div>
+            <div class="values">
+                <div class="name" trans>College</div>
+                <div class="value">{{person.college || unknown }}</div>
+            </div>
+            <div class="values">
+                <div class="name" trans>Education</div>
+                <div class="value">{{person.education || unknown }}</div>
+            </div>
+            <div class="values">
+                <div class="name" trans>Height</div>
+                <div class="value">{{person.height || unknown }}</div>
+            </div>
+            <div class="values">
+                <div class="name" trans>Nationality</div>
+                <div class="value">{{person.nationality || unknown }}</div>
+            </div>
+            <div class="header" trans>Social Media Profiles and Other links </div>
+            <ul clsss="links">
+                <li *ngIf="person.instagram">
+                    <a href="{{person.instagram}}" class="rating-btn" target="_blank">
+                        Instagram
+                    </a>
+                </li>
+                <li *ngIf="person.facebook">
+                    <a href="{{person.facebook}}" class="rating-btn" target="_blank">
+                        Facebook
+                    </a>
+                </li>
+                <li *ngIf="person.twitch">
+                    <a href="{{person.twitch}}" class="rating-btn" target="_blank">
+                        Twitch
+                    </a>
+                </li>
+                <li *ngIf="person.twitter">
+                    <a href="{{person.twitter}}" class="rating-btn" target="_blank">
+                        Twitter
+                    </a>
+                </li>
+                <li *ngIf="person.youTube">
+                    <a href="{{person.youTube}}" class="rating-btn" target="_blank">
+                        YouTube
+                    </a>
+                </li>
+                <li *ngIf="person.quora">
+                    <a href="{{person.quora}}" class="rating-btn" target="_blank">
+                        Quora
+                    </a>
+                </li>
+                <li *ngIf="person.spotify">
+                    <a href="{{person.spotify}}" class="rating-btn" target="_blank">
+                        Spotify
+                    </a>
+                </li>
+                <li *ngIf="person.website">
+                    <a href="{{person.website}}" class="rating-btn" target="_blank">
+                        Website
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div style="clear:both"></div>

@@ -1,0 +1,11 @@
+@import "variables";
+
+site-popup-modal {
+  display: block;
+  width: $modal-wide-width;
+  max-width: 100%;
+
+  star-rating-widget {
+    margin-left: -10px;
+  }
+}

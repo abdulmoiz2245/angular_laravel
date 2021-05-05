@@ -1,0 +1,51 @@
+<div class="modal-header">
+    <h2 class="modal-title" mat-dialog-title *ngIf="data.credit" trans>Edit</h2>
+    <h2 class="modal-title" mat-dialog-title *ngIf="!data.credit" trans>Create</h2>
+    <button type="button" (click)="close()" class="close-button no-style icon-button"><mat-icon svgIcon="close"></mat-icon></button>
+</div>
+
+<form autocomplete="off" (ngSubmit)="confirm()" [formGroup]="form" ngNativeValidate>
+    <mat-dialog-content class="many-inputs">
+        <div class="input-container" *ngIf="data.credit">
+            <label for="name" trans>Person</label>
+            <input type="text" id="name" [value]="credit?.name" disabled>
+        </div>
+
+        <search-input
+                *ngIf="!data.credit"
+                placeholder="Search for a person..."
+                label="Person"
+                [type]="getPersonType()"
+                [resetInputOnSelect]="false"
+                (resultSelected)="setCredit($event)"
+        ></search-input>
+        <div class="input-container">
+            <label for="info" trans>Name</label>
+            <input type="text" id="name" formControlName="name" >
+        </div>
+        <div class="input-container">
+            <label for="relation" trans>Relation</label>
+            <select id="relation" formControlName="relation" required>
+                <option [ngValue]="null" disabled selected>-</option>
+                <option value="mother" trans>Mother</option>
+                <option value="father" trans>Father</option>
+                <option value="brother" trans>Brother</option>
+                <option value="sister" trans>Sister</option>
+                <option value="girlfriend" trans>Girlfriend</option>
+                <option value="boyfriend" trans>Boyfriend</option>
+                <option value="wife" trans>Wife</option>
+                <option value="husband" trans>Husband</option>
+            </select>
+        </div>
+
+        <div class="input-container">
+            <label for="info" trans>Info</label>
+            <input type="text" id="info" formControlName="info" >
+        </div>
+    </mat-dialog-content>
+
+    <mat-dialog-actions>
+        <button (click)="close()" type="button" mat-button trans>Cancel</button>
+        <button type="submit" mat-raised-button color="accent" [disabled]="loading$ | async" trans>Save</button>
+    </mat-dialog-actions>
+</form>
